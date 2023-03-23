@@ -43,12 +43,12 @@ public class BreweryClient {
 
     //--------------------
 
-    public CustomerDto getCustomerById (UUID uuid) {
-        return restTemplate.getForObject(apihost + CUSTOMER_PATH_V1 + uuid, CustomerDto.class);
+    public CustomerDto getCustomerById (UUID customerId) {
+        return restTemplate.getForObject(apihost + CUSTOMER_PATH_V1 + customerId.toString(), CustomerDto.class);
     }
 
     public URI saveNewCustomer(CustomerDto customerDto) {
-        return restTemplate.postForLocation(apihost + CUSTOMER_PATH_V1, customerDto);
+        return  restTemplate.postForLocation(apihost + CUSTOMER_PATH_V1, customerDto);
     }
 
     public void updateCustomer(UUID customerId, CustomerDto customerDto) {
